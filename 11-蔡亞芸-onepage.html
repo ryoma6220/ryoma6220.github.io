@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
+    <title>Document</title>
+    <style>
+        body {
+            color: #666666;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            font-family: Meiryo, "微軟正黑體", "Microsoft JhengHei", "Open Sans", sans-serif;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .ba {
+            position: relative;
+        }
+
+        .text-box {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            margin: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 32, 61, 0.479);
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .bannertext {
+            margin: 10px;
+            color: white;
+        }
+
+        .btt {
+            width: 80vw;
+            text-align: center;
+        }
+
+        .btn {
+            font-size: 20px;
+            border-radius: 50px;
+            display: inline-block;
+            padding: 8px 28px;
+            font-weight: 500;
+            margin: 10px;
+            border: 2px solid #fff;
+            color: #fff;
+            background-color: transparent;
+        }
+
+
+        .nav {
+            width: 100%;
+        }
+
+        .navall {
+            width: 80%;
+            background-color: transparent;
+            margin: 0 auto;
+            height: 80px;
+            position: fixed;
+            display: inline-block;
+            z-index: 1;
+            left: 10%;
+        }
+
+        .logo {
+            background-image: url("img/logo.png");
+            height: 80px;
+            display: inline-block;
+            width: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 0 10px;
+            float: left;
+        }
+
+        .menu {
+            float: right;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .list>li {
+            display: inline-block;
+            list-style-type: none;
+            font-size: 20px;
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .about {
+            position: relative;
+        }
+
+        .hospital {
+            list-style-type: none;
+
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            transition: 0.8s;
+            height: 0;
+            display: block;
+            overflow: hidden;
+        }
+
+        .hospital>li>a {
+            font-size: 17px;
+            padding: 10px 5px;
+        }
+
+        .list>li>a:hover {
+            color: rgb(7, 196, 209);
+        }
+
+        .list>li:hover>.hospital {
+            height: 130px;
+        }
+
+        .hospital>li>a:hover {
+            color: rgb(7, 196, 209);
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+/*關於本院*/
+        .section {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0 50px 0;
+        }
+
+        .about_p {
+            width: 60%;
+            margin: 20px auto;
+            font-size: 18px;
+            line-height: 40px;
+            color: #999;
+
+        }
+
+        .aboutbanner {
+            width: 100%;
+            height: 900px;
+            background-image: url("img/aboutbanner.jpg");
+            margin: 20px 0;
+            background-repeat: no-repeat;
+        }
+/*服務項目*/
+        .section-header .section-title {
+            font-size: 32px;
+            color: #111;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .section-header .section-description {
+            text-align: center;
+            padding-bottom: 40px;
+            color: #999;
+        }
+
+        .severs {
+            text-align: center;
+        }
+
+        .row {
+            margin: 0 auto;
+            max-width: 1140px;
+        }
+
+        .box {
+            padding: 50px 20px;
+            margin: 0 30px 50px 30px;
+            text-align: center;
+            border: 1px solid #e6e6e6;
+
+            width: calc(33.33% - 60px);
+            float: left;
+            box-sizing: border-box;
+            position: relative;
+            background: white;
+
+
+
+        }
+
+        .title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 24px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            height: 72px;
+        }
+
+        .icon {
+            position: absolute;
+            top: -36px;
+            left: calc(50% - 36px);
+            transition: 0.2s;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            width: 72px;
+            height: 72px;
+            background: #2dc997;
+            box-sizing: border-box;
+        }
+/*醫師介紹*/
+        .doctor {
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .dc-container {
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+            margin: 30px 0;
+        }
+
+        .bgbox {
+            position: relative;
+            margin: 50px 0;
+        }
+   
+
+        .box1 {
+            width: 50%;
+        }
+
+        .box2 {
+            position: absolute;
+            border-radius: 5px;
+            padding: 20px 10px;
+            border: 1px solid #e6e6e6;
+            ;
+            width: 40%;
+            right: 350px;
+            top: 120px;
+            background-color: white;
+            box-shadow: 5px 5px 5px #666666;
+        }
+        .box3 {
+            width: 50%;
+            float: right;
+        }
+
+        .box4 {
+            position: absolute;
+            border-radius: 5px;
+            padding: 20px 10px;
+            border: 1px solid #e6e6e6;
+            ;
+            width: 40%;
+            left:  350px;
+            top: 120px;
+            background-color: white;
+            box-shadow: 5px 5px 5px #666666;
+        }
+        
+/*分隔圖*/
+#call-to-action {margin: 30px 0;
+    background: linear-gradient( rgba(65, 165, 175, 0.5), rgba(5, 55, 105, 0.4)), url("img/banner-dc.jpg") fixed center center;
+    background-size: cover;
+    padding: 80px 0;
+}
+#call-to-action .cta-title {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;}
+    #call-to-action .cta-text {
+    color: #fff;
+}
+        
+/*機器設備*/
+        .machine {
+            background: #f7f7f7;
+            padding: 80px 0;
+        }
+
+        .machine #portfolio-flters {
+            padding: 0;
+            margin: 0 0 45px 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .machine #portfolio-flters li {
+            cursor: pointer;
+            margin: 0 10px;
+            display: inline-block;
+            padding: 10px 22px;
+            font-size: 12px;
+            line-height: 20px;
+            color: #666666;
+            border-radius: 4px;
+            text-transform: uppercase;
+            background: #fff;
+            margin-bottom: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .machine #portfolio-flters li:hover,
+        .machine #portfolio-flters li.filter-active {
+            background: #2dc997;
+            color: #fff;
+        }
+
+        .machine #portfolio-wrapper {
+            padding-right: 15px;
+        }
+
+        .machine .portfolio-item {
+            position: relative;
+            height: 200px;
+            overflow: hidden !important;
+            margin-bottom: 15px;
+            transition: all 350ms ease;
+            transform: scale(1);
+        }
+
+        .machine .portfolio-item .details {
+
+            background: #2dc997;
+            position: absolute;
+            width: 100%;
+            height: 0px;
+            transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .machine.portfolio-item:hover .details {
+            height: 50px;
+        }
+
+        .boximg {
+            margin: 0 15px;
+            text-align: center;
+            border: 1px solid #e6e6e6;
+            width: calc(33.33% - 60px);
+            float: left;
+            box-sizing: border-box;
+            position: relative;
+            background: white;
+
+
+
+        }
+/*倫波*/
+         .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+   
+
+
+
+   .card-deck{width:100%;margin:20px auto; }
+    .card{width: calc(25% - 30px);
+         margin:0 15px;
+         border: 1px solid #e6e6e6;
+         float: left;
+        box-sizing: border-box;
+        
+        overflow: hidden !important;}
+
+
+
+.mb-0 {color: #111;
+    
+}
+.card-img {overflow: hidden !important;
+    width:100%;
+    border-radius: calc(.25rem - 1px);
+   
+}
+.mt-4 {color: #111;
+    
+}
+ .news-more {
+    text-align: center;
+    margin:20px auto 0;
+}
+.news-more a {margin:50px 0;
+    font: 25px;
+    font-weight: bold;
+    color: #000;
+    border: solid 3px #293010;
+    padding: 5px 100px 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="navall " align="center">
+            <div class="logo"></div>
+            <div class="menu">
+                <ul class="list">
+                    <li class="about">
+                        <a href="">關於本院</a>
+                        <ul class="hospital">
+                            <li>
+                                <a href="">服務項目</a>
+                            </li>
+                            <li>
+                                <a href="">醫師簡介</a>
+                            </li>
+                            <li>
+                                <a href="">儀器設備</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">訊息公告</a>
+                    </li>
+                    <li>
+                        <a href="">寵物百科</a>
+                    </li>
+                    <li>
+                        <a href="">門診資訊</a>
+                    </li>
+                    <li>
+                        <a href="">聯絡我們</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ba">
+        <video width="100%" height="50%" autoplay loop muted>
+            <source src="dog.mp4" type="video/mp4">
+
+        </video>
+        <div class="text-box">
+            <div class="text">
+                <img src="logo/動物logo_白_工作區域 1.png">
+                <div class="bannertext btt">Love and Care</div>
+                <div class="bannertext">For all</div>
+                <button class="btn">GET START</button>
+            </div>
+        </div>
+    </div>
+    <!--關於本院-->
+    <div class="section">
+        <div class="section-header">
+            <h1 class="section-title">關於本院</h1>
+            <p class="about_p">創立於2013年9月9日。由一對喜愛寵物的獸醫師夫妻所創立。由寵物的角度去思考如何創造一個尊重動物的醫療環境。待寵物醫療如同人醫醫療的慎重及專業。建構一間無論是寵物或是主人都會覺得舒適且放心的醫療環境。並以動物行為的角度去教育主人如何與寵物間相處以添增與寵物間相處的樂趣。</p>
+        </div>
+        <div class="aboutbanner">
+
+        </div>
+
+
+
+
+    </div>
+    <!--服務項目-->
+    <div class="serves">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">服務項目</h1>
+                <p class="section-description">我們提供犬貓各科的專業醫療與服務，歡迎洽詢！</p>
+            </div>
+            <div class="row">
+                <div class="box">
+                    <div class="icon">
+                        <img src="img/icon/clinic.png" style="width: 35px;height: 35px;">
+                    </div>
+                    <h4 class="title">
+                        一般內科</h4>
+
+                    <p class="description">本院有專業的內科主治醫師，為內科醫學會會員，定期參加國內外研討會，更新知識，對於疑難雜症、內科疾病的診斷治療經驗豐富。</p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <img src="img/icon/teeth.png" style="width: 35px;height: 35px;">
+                    </div>
+                    <h4 class="title">
+                        口腔醫學 </h4>
+                    <p class="description">大部分的犬貓口臭問題都是來自於口腔牙齒保健不當所引起，當然也有其他如腎臟疾病所引起的口腔臭味產生。</p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <img src="img/icon/first-aid-kit.png" style="width: 35px;height: 35px;">
+                    </div>
+                    <h4 class="title">
+                        健康檢查
+                    </h4>
+                    <p class="description">通常以外觀、皮膚、牙齒、耳朵、眼睛和糞便檢查等。以視診觸診為主，侵入性較小的方式做基礎檢查。</p>
+                </div>
+
+                <div class="box">
+                    <div class="icon">
+                        <img src="img/icon/surgeon.png" style="width: 35px;height: 35px;">
+                    </div>
+                    <h4 class="title">
+                        一般外科
+                    </h4>
+                    <p class="description">本院有專業的內科主治醫師，為內科醫學會會員，定期參加國內外研討會，更新知識，對於疑難雜症、內科疾病的診斷治療經驗豐富。</p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <img src="img/icon/heart.png" style="width: 35px;height: 35px;">
+                    </div>
+                    <h4 class="title">
+                        心臟科
+                    </h4>
+                    <p class="description">隨著寵物飼養觀念與獸醫醫療技術的進步，犬貓老年疾病越來越常見，心臟病也躍升成為寵物十大死因的前三名。</p>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <img src="img/icon/ball-of-the-knee.png" style="width: 35px;height: 35px;">
+                    </div>
+                    <h4 class="title">
+                        骨外科
+                    </h4>
+                    <p class="description">當狗狗因外力或從高處摔落時，常見到四肢骨折的情形，會隨不同骨折的情形而有不同的手術方式，及預後。</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+    <!--醫師簡介-->
+    <div class="doctor">
+        <div class="section-header">
+            <h1 class="section-title">醫師簡介</h1>
+        </div>
+        <div class="dc-container">
+            <div class="bgbox">
+                
+                <div class="box1">
+                    <img src="img/doctor/1.jpg" style="width:80% ;">
+                </div>
+                <div class="box2">
+                    <h3>職稱：外科專科主任/主治獸醫師</h3>
+                    <p>專長：一般內/外科、急診科 </p>
+                    <p> 經歷： 中興大學獸醫系 畢業 全國動物醫院 住院獸醫師 全國動物醫院 主治獸醫師 東海大學農學院 客座講師</p>
+                </div>
+            </div>
+             <div class="bgbox">
+                    <div class="box3">
+                            <img src="img/doctor/2.jpg" style="width:80% ;">
+                        </div>
+                <div class="box4">
+                    <h3>職稱： 專業貓科主任 / 主治獸醫師</h3>
+                    <p>專長：一般內/外科、貓科、心臟科 </p>
+                    <p> 經歷： 貓科主任鄧炳池獸醫師參加2005年FELINE MEDICAL SEMINAR(2005年貓病研討會)返國後，協助籌備與加拿大長青動物醫院的貓科研究交流，並結盟為姊妹院，為本院貓科的研究交流提供了另一永續暢通管道。</p>
+                </div>
+                <div class="clear"></div>
+                
+            </div> 
+        </div>
+    </div>
+    <div class="clear"></div>
+<!--分隔圖-->
+    <section id="call-to-action">
+            <div class="container wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+              <div class="row">
+                <div class="col-lg-9 text-center text-lg-left">
+                  <h3 class="cta-title">愛與關懷</h3>
+                  <p class="cta-text"> 除了門診病患外，我們更對社區與社群主動的關懷，不斷教導人們尊重其他動物的主體性，並將社群概念擴及人類生活圈中的各種動物。初期，我們製作廣播節目，教導兒童寵物常識，其後並致力發展自有的媒體企劃群，持續利用網站、夏令營等傳播方式，活絡社區性的群內互動。
+                    </p>
+                  
+                </div>
+                <div class="col-lg-3 cta-btn-container text-center">
+                  <a class="cta-btn align-middle" href="#">Call To Action</a>
+                </div>
+              </div>
+      
+            </div>
+          </section>
+
+    <!--機器設備-->
+    <div class="machine">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">機器設備</h1>
+                <p class="section-description">正確的分析結果才能幫寶貝的健康做最準確的判斷，本院多年來不惜鉅資，領先台灣各家動物醫院自國外引進各類醫療設備，為寵物的健康把關。</p>
+            </div>
+            <div>
+                <ul id="portfolio-flters">
+
+                    <li data-filter=".filter-app" class="filter-active">檢驗儀器</li>
+                    <li data-filter=".filter-card">診治儀器</li>
+                    <li data-filter=".filter-logo">手術設備</li>
+                    <li data-filter=".filter-web">影像設備</li>
+                </ul>
+            </div>
+            <div class="row" id="portfolio-wrapper">
+                <div class="boximg portfolio-item filter-app">
+                    <a href="">
+                        <img src="img/檢驗儀器/生化檢測儀-3.jpg" alt="">
+                        <div class="details">
+                            <h4>App 1</h4>
+                            <span>Alored dono par</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="boximg portfolio-item filter-web">
+                    <a href="">
+                        <img src="img/檢驗儀器/內分泌檢測儀-2.jpg" alt="">
+                        <div class="details">
+                            <h4>Web 2</h4>
+                            <span>Alored dono par</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="boximg portfolio-item filter-app">
+                    <a href="">
+                        <img src="img/檢驗儀器/血液學分析儀-2.jpg" alt="">
+                        <div class="details">
+                            <h4>App 3</h4>
+                            <span>Alored dono par</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="boximg portfolio-item filter-card">
+                    <a href="">
+                        <img src="img/檢驗儀器/電解質與血液氣體分析儀-3.jpg" alt="">
+                        <div class="details">
+                            <h4>Card 1</h4>
+                            <span>Alored dono par</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="boximg portfolio-item filter-card">
+                    <a href="">
+                        <img src="img/檢驗儀器/血液凝固分析儀-2.jpg" alt="">
+                        <div class="details">
+                            <h4>Card 2</h4>
+                            <span>Alored dono par</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="boximg portfolio-item filter-web">
+                    <a href="">
+                        <img src="img/portfolio/web3.jpg" alt="">
+                        <div class="details">
+                            <h4>Web 3</h4>
+                            <span>Alored dono par</span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<div class="clear"></div>
+<!--訊息公告-->
+<div class="news">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">訊息公告</h1>
+            </div>
+
+ <!-- Swiper -->
+ <div class="row">
+ <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><div class="swbanner"><img src="img/675x372.jpg"style="width:100% ;height:80% ;"></div></div>
+          <div class="swiper-slide"><div class="swbanner"><img src="img/電視牆-主視覺_犬.jpg"style="width:100% ;height:80%;"></div></div>
+          <div class="swiper-slide"><div class="swbanner"><img src="img/官網-碩騰.jpg"style="width:100% ;height:80%;"></div></div>
+         
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+<!--寵物百科-->
+<div class="pet">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">寵物百科</h1>
+            </div>
+            <div class="row">
+					<div class="card-deck">
+						<div class="card ">
+							<a href="#">
+								<div class="mb-3">
+									<h5 class="mb-0">2018.07.23</h5>
+								</div>
+							 <img class="card-img" src="img/card/1.jpg" alt="Card image cap"> 
+								<div class="mb-3">
+                                    <p class="mt-4">狗狗身上常見寄生蟲 </p>
+                                    <p class="mt-4">夏日蟲蟲危機OUT</p>
+								</div>
+							</a>
+						</div>
+						<div class="card ">
+							<a href="#">
+								<div class="mb-3">
+									<h5 class="mb-0">2018.07.21</h5>
+								</div>
+								<img class="card-img" src="img/card/2.jpg" alt="Card image cap"> 
+								<div class="mb-3">
+                                    <p class="mt-4">狗狗露營趣</p>
+                                   <p class="mt-4">哪些危機要注意？</p>
+                                    
+								</div>
+							</a>
+						</div>
+						<div class="card ">
+							<a href="#">
+								<div class="mb-3">
+									<h5 class="mb-0">2018.07.14</h5>
+								</div>
+								<img class="card-img " src="img/card/3.jpg" alt="Card image cap"> 
+								<div class="mb-3">
+                                    <p class="mt-4">貓皇太難懂？</p>
+                                    <p class="mt-4">18個問題一網打盡</p>
+								</div>
+							</a>
+						</div>
+						<div class="card ">
+							<a href="#">
+								<div class="mb-3">
+									<h5 class="mb-0">2018.6.25</h5>
+								</div>
+							 <img class="card-img" src="img/card/4.jpg" alt="Card image cap"> 
+								<div class="mb-3">
+                                    <p class="mt-4">15個養貓前</p>
+                                    <p class="mt-4">必備小知識！</p>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="news-more">
+						<a href="#" class="hvr-sweep-to-right">更多訊息</a>
+					</div>	
+			</div>
+        </div>
+</div>        
+
+<!--門診資訊-->
+<div class="work">
+
+
+
+
+
+    
+</div>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="../dist/js/swiper.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+        var swiper = new Swiper('.swiper-container', {
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      </script>
+
+
+
+</body>
+
+</html>

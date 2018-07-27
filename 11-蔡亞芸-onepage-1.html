@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            font-family: Meiryo, "微軟正黑體", "Microsoft JhengHei";
+        }
+
+        .ba {
+            position: relative;
+        }
+
+        .text-box {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            margin: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 32, 61, 0.479);
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .bannertext {
+            margin: 10px;
+            color: white;
+        }
+
+        .btt {
+
+            width: 80vw;
+            text-align: center;
+        }
+
+        .btn {
+            font-size: 20px;
+            border-radius: 50px;
+            display: inline-block;
+            padding: 8px 28px;
+            font-weight: 500;
+            margin: 10px;
+            border: 2px solid #fff;
+            color: #fff;
+            background-color: transparent;
+        }
+
+
+        .nav {
+            width: 100%;
+        }
+
+        .navall {
+            width: 80%;
+            background-color: transparent;
+            margin: 0 auto;
+            height: 80px;
+            position: fixed;
+            display: inline-block;
+            z-index: 1;
+            left: 10%;
+        }
+
+        .logo {
+            background-image: url("img/logo.png");
+            height: 80px;
+            display: inline-block;
+            width: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 0 10px;
+            float: left;
+        }
+
+        .menu {
+            float: right;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .list>li {
+            display: inline-block;
+            list-style-type: none;
+            font-size: 20px;
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .about {
+            position: relative;
+        }
+
+        .hopital {
+            list-style-type: none;
+            ;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            transition: 0.8s;
+            height: 0;
+            display: block;
+            overflow: hidden;
+        }
+
+        .hopital>li>a {
+            font-size: 17px;
+            padding: 10px 5px;
+        }
+
+        .list>li>a:hover {
+            color: rgb(7, 196, 209);
+        }
+
+        .list>li:hover>.hopital {
+            height: 130px;
+        }
+
+        .hopital>li>a:hover {
+            color: rgb(7, 196, 209);
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .section {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0 50px 0;
+        }
+
+        .about_p {
+            width: 60%;
+            margin: 0 auto;
+            font-size: 24px;
+            line-height: 40px;
+            color: rgb(95, 95, 95);
+
+        }
+
+        .aboutbanner {
+            width: 100%;
+            height: 900px;
+            background-image: url("img/aboutbanner.jpg");
+            margin: 20px 0;
+            background-repeat: no-repeat;
+        }
+
+        .serves {
+            width: 100%;
+            background: #fff;
+            background-size: cover;
+            padding: 80px 0 60px 0;
+        }
+
+        .line1 {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .box {
+            padding: 50px 20px;
+            margin-bottom: 50px;
+            text-align: center;
+            border: 1px solid #e6e6e6;
+            height: 200px;
+            position: relative;
+            background: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="navall " align="center">
+            <div class="logo"></div>
+            <div class="menu">
+                <ul class="list">
+                    <li class="about">
+                        <a href="">關於本院</a>
+                        <ul class="hopital">
+                            <li>
+                                <a href="">服務項目</a>
+                            </li>
+                            <li>
+                                <a href="">醫師簡介</a>
+                            </li>
+                            <li>
+                                <a href="">儀器設備</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">訊息公告</a>
+                    </li>
+                    <li>
+                        <a href="">寵物百科</a>
+                    </li>
+                    <li>
+                        <a href="">門診資訊</a>
+                    </li>
+                    <li>
+                        <a href="">聯絡我們</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ba">
+        <video width="100%" height="50%" autoplay loop muted>
+            <source src="dog.mp4" type="video/mp4">
+
+        </video>
+        <div class="text-box">
+            <div class="text">
+                <img src="logo/動物logo_白_工作區域 1.png">
+                <div class="bannertext btt">Love and Care</div>
+                <div class="bannertext">For all</div>
+                <button class="btn">GET START</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>關於本院</h1>
+        <p class="about_p">創立於2013年9月9日。由一對喜愛寵物的獸醫師夫妻所創立。由寵物的角度去思考如何創造一個尊重動物的醫療環境。待寵物醫療如同人醫醫療的慎重及專業。建構一間無論是寵物或是主人都會覺得舒適且放心的醫療環境。並以動物行為的角度去教育主人如何與寵物間相處以添增與寵物間相處的樂趣。</p>
+        <div class="aboutbanner">
+
+        </div>
+
+
+
+
+    </div>
+    <div class="section">
+        <h1>服務項目</h1>
+        <p class="about_p">我們提供犬貓各科的專業醫療與服務，歡迎洽詢！</p>
+    </div>
+
+    <div class="serves">
+        <div class="line1">
+            <div class="box"></div>
+            <div class="box">
+                <div class="box"></div>
+            </div>
+
+            <div class="line1">
+                <div class="box"></div>
+                <div class="box">
+                    <div class="box"></div>
+                </div>
+
+            </div>
+
+
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+
+
+
+
+
+</body>
+
+</html>
