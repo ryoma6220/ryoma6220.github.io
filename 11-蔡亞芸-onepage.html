@@ -261,8 +261,41 @@
         .bgbox {
             position: relative;
             margin: 50px 0;
+
+
+
         }
-   
+.div1
+{
+position: relative;
+
+margin: 100px;
+padding:10px;
+
+}
+
+
+    .div2 {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: -17px;
+    width: 300%;
+    height: 100%;
+    background-color: #e6fff1;
+    -webkit-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+    -webkit-transform-origin: 100% 0;
+    -ms-transform-origin: 100% 0;
+    -o-transform-origin: 100% 0;
+    transform-origin: 89% 0;
+    z-index: -1;
+
+}
+.div3{background-color: #e6fff1;}
+        
 
         .box1 {
             width: 50%;
@@ -447,6 +480,91 @@
     text-decoration: none;
     display: inline-block;
 }
+/*門診資訊*/
+
+.workbg{width: 100%;height: 300px;margin:30px 0; }
+.worknew{width: 20%;padding:30px;box-sizing: border-box;background-color: #2dc997;float: left;height: 300px;text-align: center;font-size: 35px;line-height: 250px;}
+.workpic{width: 80%;float: left;background-image: url("img/workbg.jpg");background-position: center;height: 300px;}
+.worklt{width: 30%;float: left;clear:left;}
+.workrt{width: 70%;float: right;;}
+.calendar{
+	width:100% ;
+	height:400px;
+	background:#fff;
+	box-shadow:0px 1px 1px rgba(0,0,0,0.1);
+}
+.title{
+	height:70px;
+	border-bottom:1px solid rgba(0,0,0,0.1);
+	text-align:center;
+	position:relative;
+}
+#calendar-title{
+	font-size:25px;
+	font-family:arial;
+	font-weight:bold;
+	text-transform:uppercase;
+	padding:14px 0 0 0;
+}
+#calendar-year{
+	font-size:15px;
+	font-family:arial;
+	font-weight:normal;
+}
+#prev{
+	text-indent:-9999px;
+	position:absolute;
+	left:0;
+	top:0;
+	width:60px;
+	height:70px;
+	background:url("img/prev.png") no-repeat 50% 50%;
+}
+#next{
+	text-indent:-9999px;
+	position:absolute;
+	right:0;
+	top:0;
+	width:60px;
+	height:70px;
+	background:url("img/next.png") no-repeat 50% 50%;
+}
+.body{
+	padding:10px 20px;
+}
+.body-list ul{
+	width:100%;
+	font-family:arial;
+	font-weight:bold;
+	font-size:14px;
+}
+.body-list ul li{
+	width:14.28%;
+	height:36px;
+	line-height:36px;
+	list-style-type:none;
+	display:block;
+	box-sizing:border-box;
+	float:left;
+	text-align:center;
+}
+.lightgrey{
+	color:#a8a8a8;
+}
+.darkgrey{
+	color:#565656;
+}
+.green{
+	color:#6ac13c;
+}
+.greenbox{
+	border:1px solid #6ac13c;
+	background:#e9f8df;
+}
+.map{width:calc( 50% - 15px);float: left;}
+.data{width: 50%;float: left;}
+.databox{width:100% ;height:50px;margin:30px;clear: left; }
+.datap{margin-left: 80px;}
 
     </style>
 </head>
@@ -588,8 +706,8 @@
             <h1 class="section-title">醫師簡介</h1>
         </div>
         <div class="dc-container">
-            <div class="bgbox">
-                
+            <div class="bgbox div1">
+           <div class="div2"></div>
                 <div class="box1">
                     <img src="img/doctor/1.jpg" style="width:80% ;">
                 </div>
@@ -599,7 +717,8 @@
                     <p> 經歷： 中興大學獸醫系 畢業 全國動物醫院 住院獸醫師 全國動物醫院 主治獸醫師 東海大學農學院 客座講師</p>
                 </div>
             </div>
-             <div class="bgbox">
+           
+             <div class="bgbox  div3">
                     <div class="box3">
                             <img src="img/doctor/2.jpg" style="width:80% ;">
                         </div>
@@ -611,6 +730,8 @@
                 <div class="clear"></div>
                 
             </div> 
+            <div class="dcbg"></div>
+       
         </div>
     </div>
     <div class="clear"></div>
@@ -805,16 +926,67 @@
 
 <!--門診資訊-->
 <div class="work">
+    <div class="workbg">
+        <div class="worknew">門診資訊</div>
+        <div class="workpic"></div>
+    </div>
 
-
-
-
-
+    <div class="row">
+        <div class="worklt"><h2>診療時間說明</h2><p>中午 12:00-13:30 固定休診</p><p>晚上 18:00-19:30 固定休診</p></div>
+        <div class="workrt">
+        <div class="calendar">
+            <div class="title">
+              <h1 class="green" id="calendar-title">Month</h1>
+              <h2 class="green small" id="calendar-year">Year</h2>
+              <a href="" id="prev">Prev Month</a>
+              <a href="" id="next">Next Month</a>
+            </div>
+            <div class="body">
+              <div class="lightgrey body-list">
+                <ul>
+                  <li>MON</li>
+                  <li>TUE</li>
+                  <li>WED</li>
+                  <li>THU</li>
+                  <li>FRI</li>
+                  <li>SAT</li>
+                  <li>SUN</li>
+                </ul>
+              </div>
+              <div class="darkgrey body-list">
+                <ul id="days">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
     
 </div>
+<div class="clear"></div>
+<!--聯絡我們-->
+
+<div class="tell">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">聯絡我們</h1>
+        </div>
+        <div class="row">
+        <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.5549287280755!2d120.53789011498759!3d24.081972984426937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693897525aa97d%3A0x40044e398a3eabe3!2z5qWt5oiQ6Zu76IWm!5e0!3m2!1szh-TW!2stw!4v1533197781871" width="550 " height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+        <div class="data">
+            <div class="databox"><img src="img/fb.jpg"style="width:50px;height:50px;"><p class="datap">業成動物醫院</p></div>
+            <div class="databox"><img src="img/mail.jpg"style="width:50px;height:50px;"><p class="datap">7276278@yahoo.com.tw</p></div>
+            <div class="databox"><img src="img/tel.jpg"style="width:50px;height:50px;"><p class="datap">04 - 728 3550</p></div>
+            <div class="databox"><img src="img/place.jpg"style="width:40px;height:50px;"><p class="datap">彰化市中正路一段542號</p></div>
 
 
-
+        </div>
+        
+        </div>
+</div>
+</div>
+<footer>
+    
+</footer>
 
 
 
@@ -822,6 +994,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+        <script type="text/javascript"></script>
   <!-- Swiper JS -->
   <script src="../dist/js/swiper.min.js"></script>
 <!-- Initialize Swiper -->
@@ -833,8 +1006,76 @@
           },
         });
       </script>
+<script>
+   var month_olympic = [31,29,31,30,31,30,31,31,30,31,30,31];
+var month_normal = [31,28,31,30,31,30,31,31,30,31,30,31];
+var month_name = ["January","Febrary","March","April","May","June","July","Auguest","September","October","November","December"];
+var holder = document.getElementById("days");
+var prev = document.getElementById("prev");
+var next = document.getElementById("next");
+var ctitle = document.getElementById("calendar-title");
+var cyear = document.getElementById("calendar-year");
+var my_date = new Date();
+var my_year = my_date.getFullYear();
+var my_month = my_date.getMonth();
+var my_day = my_date.getDate();
+prev.onclick = function(e){
+	e.preventDefault();
+	my_month--;
+	if(my_month<0){
+		my_year--;
+		my_month = 11;
+	}
+	refreshDate();
+}
+next.onclick = function(e){
+	e.preventDefault();
+	my_month++;
+	if(my_month>11){
+		my_year++;
+		my_month = 0;
+	}
+	refreshDate();
+}
+function refreshDate(){
+	var str = "";
+	var totalDay = daysMonth(my_month, my_year); //获取该月总天数
+	var firstDay = dayStart(my_month, my_year); //获取该月第一天是星期几
+	var myclass;
+	for(var i=1; i<firstDay; i++){ 
+		str += "<li></li>"; //为起始日之前的日期创建空白节点
+	}
+	for(var i=1; i<=totalDay; i++){
+		if((i<my_day && my_year==my_date.getFullYear() && my_month==my_date.getMonth()) || my_year<my_date.getFullYear() || ( my_year==my_date.getFullYear() && my_month<my_date.getMonth())){ 
+			myclass = " class='lightgrey'"; //当该日期在今天之前时，以浅灰色字体显示
+		}else if (i==my_day && my_year==my_date.getFullYear() && my_month==my_date.getMonth()){
+			myclass = " class='green greenbox'"; //当该日期是当天时，以绿色背景突出显示
+		}else{
+			myclass = " class='darkgrey'"; //当该日期在今后之后时，以深灰字体显示
+		}
+		str += "<li"+myclass+">"+i+"</li>"; //创建日期节点
+	}
+	holder.innerHTML = str; //设置日期显示
+	ctitle.innerHTML = month_name[my_month]; //设置英文月份显示
+	cyear.innerHTML = my_year; //设置年份显示
+}
+//获取某年某月第一天是星期几
+function dayStart(month, year) {
+	var tmpDate = new Date(year, month, 1);
+	return (tmpDate.getDay());
+}
 
-
+//计算某年是不是闰年，通过求年份除以4的余数即可
+function daysMonth(month, year) {
+	var tmp = year % 4;
+	if (tmp == 0) {
+		return (month_olympic[month]);
+	} else {
+		return (month_normal[month]);
+	}
+}
+refreshDate();
+</script>
 
 </body>
 
